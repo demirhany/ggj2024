@@ -1,18 +1,33 @@
+   using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class NewBehaviourScript : MonoBehaviour
+public class RandomCharacterSelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public List<int> SelectJuris()
+   {
+      List<int> Selected = new List<int>();
+      
+      for (var i = 0; i < 3; i++)
+      {
+         int randomValue = Random.Range(0, 10);
+         if (!Selected.Contains(randomValue))
+         {
+            Selected.Add(randomValue);
+         }
+         else
+         {
+            randomValue = Random.Range(0, 10);
+            while (Selected.Contains(randomValue))
+            {
+               randomValue = Random.Range(0, 10);
+            }
+            Selected.Add(randomValue);
+         }
+      }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+      return Selected;
+   }
 }
