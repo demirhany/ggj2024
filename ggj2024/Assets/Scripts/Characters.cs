@@ -37,20 +37,19 @@ public class Character
 
 public class Characters: MonoBehaviour 
 { /*1  Feminist ? 2, 7, 10 
-    2 Siyasal Ýslamci ? 1, ~3, 6, 8, 9, 10
-    3 Doða sever ? 10, 2
-    4 Milliyetçi ? 8, 9, 10
+    2 Siyasal ï¿½slamci ? 1, ~3, 6, 8, 9, 10
+    3 Doï¿½a sever ? 10, 2
+    4 Milliyetï¿½i ? 8, 9, 10
     5 Geekler ?
-    6 Aþýrý Sanatçý (sanat sepet tayfa)? 2, 10
+    6 Aï¿½ï¿½rï¿½ Sanatï¿½ï¿½ (sanat sepet tayfa)? 2, 10
     7 Insel(erkocu) ? 1, 10
-    8 Seküler ? 6, 4, 10
-    9 Dünya barýþçýsý ? 6, 4, 10
+    8 Sekï¿½ler ? 6, 4, 10
+    9 Dï¿½nya barï¿½ï¿½ï¿½ï¿½sï¿½ ? 6, 4, 10
     10 Satanist (metalci) ? 1, 6, 3, 4, 2, 7, 8, 9 */
 
     public Character[] characters = new Character[10];
-    Character SelectedCharacter;
     //// Start is called before the first frame update
-    public void deneme()
+    public void createCharacters()
     {
         characters[0] = new Character("feminist", 50); //feminist -> 2 7 10  ARRAYDE 1 6 9
         characters[1] = new Character("siyasal islamci", 50); //siyasal islamci 1 3 6 8 9 10 ARRAYDE 0 2 5 7 8 9 
@@ -65,18 +64,16 @@ public class Characters: MonoBehaviour
 
     }
 
-    //// Update is called once per frame
-    void Update()
+    public void UpdateJudgeStats(Character bizimChar)
     {
-
-        if (SelectedCharacter == characters[0]) //feminist için
+        if (bizimChar == characters[0]) //feminist iï¿½in
         {
             characters[0].IncrementHappiness();
             characters[0].DecrementOpponent(characters[1]);
             characters[0].DecrementOpponent(characters[6]);
             characters[0].DecrementOpponent(characters[9]);
         }
-        if (SelectedCharacter == characters[1]) //siyasal islamcý için
+        if (bizimChar == characters[1]) //siyasal islamcï¿½ iï¿½in
         {
             characters[1].IncrementHappiness();
             characters[1].DecrementOpponent(characters[0]);
@@ -86,50 +83,50 @@ public class Characters: MonoBehaviour
             characters[1].DecrementOpponent(characters[8]);
             characters[1].DecrementOpponent(characters[9]);
         }
-        if (SelectedCharacter == characters[2]) //doða sever için
+        if (bizimChar == characters[2]) //doï¿½a sever iï¿½in
         {
             characters[2].IncrementHappiness();
             characters[2].DecrementOpponent(characters[1]);
             characters[2].DecrementOpponent(characters[9]);
         }
-        if (SelectedCharacter == characters[3]) //milliyetçi için
+        if (bizimChar == characters[3]) //milliyetï¿½i iï¿½in
         {
             characters[3].IncrementHappiness();
             characters[3].DecrementOpponent(characters[7]);
             characters[3].DecrementOpponent(characters[8]);
             characters[3].DecrementOpponent(characters[9]);
         }
-        if (SelectedCharacter == characters[4]) //geek için
+        if (bizimChar == characters[4]) //geek iï¿½in
         {
             characters[4].IncrementHappiness();
         }
-        if (SelectedCharacter == characters[5]) //asiri sanatci için
+        if (bizimChar == characters[5]) //asiri sanatci iï¿½in
         {
             characters[5].IncrementHappiness();
             characters[5].DecrementOpponent(characters[1]);
             characters[5].DecrementOpponent(characters[9]);
         }
-        if (SelectedCharacter == characters[6]) //insel için
+        if (bizimChar == characters[6]) //insel iï¿½in
         {
             characters[6].IncrementHappiness();
             characters[6].DecrementOpponent(characters[0]);
             characters[6].DecrementOpponent(characters[9]);
         }
-        if (SelectedCharacter == characters[7]) //seküler için
+        if (bizimChar == characters[7]) //sekï¿½ler iï¿½in
         {
             characters[7].IncrementHappiness();
             characters[7].DecrementOpponent(characters[3]);
             characters[7].DecrementOpponent(characters[5]);
             characters[7].DecrementOpponent(characters[9]);
         }
-        if (SelectedCharacter == characters[8]) //dünya barýþçýsý için
+        if (bizimChar == characters[8]) //dï¿½nya barï¿½ï¿½ï¿½ï¿½sï¿½ iï¿½in
         {
             characters[8].IncrementHappiness();
             characters[8].DecrementOpponent(characters[3]);
             characters[8].DecrementOpponent(characters[5]);
             characters[8].DecrementOpponent(characters[9]);
         }
-        if (SelectedCharacter == characters[9]) //siyasal islamcý için
+        if (bizimChar == characters[9]) //siyasal islamcï¿½ iï¿½in
         {
             characters[9].IncrementHappiness();
             characters[9].DecrementOpponent(characters[0]);
@@ -141,9 +138,87 @@ public class Characters: MonoBehaviour
             characters[9].DecrementOpponent(characters[7]);
             characters[9].DecrementOpponent(characters[8]);
         }
-
-        
     }
+
+    //// Update is called once per frame
+    // void Update()
+    // {
+    //
+    //     if (bizimChar == characters[0]) //feminist iï¿½in
+    //     {
+    //         characters[0].IncrementHappiness();
+    //         characters[0].DecrementOpponent(characters[1]);
+    //         characters[0].DecrementOpponent(characters[6]);
+    //         characters[0].DecrementOpponent(characters[9]);
+    //     }
+    //     if (bizimChar == characters[1]) //siyasal islamcï¿½ iï¿½in
+    //     {
+    //         characters[1].IncrementHappiness();
+    //         characters[1].DecrementOpponent(characters[0]);
+    //         characters[1].DecrementOpponent(characters[2]);
+    //         characters[1].DecrementOpponent(characters[5]);
+    //         characters[1].DecrementOpponent(characters[7]);
+    //         characters[1].DecrementOpponent(characters[8]);
+    //         characters[1].DecrementOpponent(characters[9]);
+    //     }
+    //     if (bizimChar == characters[2]) //doï¿½a sever iï¿½in
+    //     {
+    //         characters[2].IncrementHappiness();
+    //         characters[2].DecrementOpponent(characters[1]);
+    //         characters[2].DecrementOpponent(characters[9]);
+    //     }
+    //     if (bizimChar == characters[3]) //milliyetï¿½i iï¿½in
+    //     {
+    //         characters[3].IncrementHappiness();
+    //         characters[3].DecrementOpponent(characters[7]);
+    //         characters[3].DecrementOpponent(characters[8]);
+    //         characters[3].DecrementOpponent(characters[9]);
+    //     }
+    //     if (bizimChar == characters[4]) //geek iï¿½in
+    //     {
+    //         characters[4].IncrementHappiness();
+    //     }
+    //     if (bizimChar == characters[5]) //asiri sanatci iï¿½in
+    //     {
+    //         characters[5].IncrementHappiness();
+    //         characters[5].DecrementOpponent(characters[1]);
+    //         characters[5].DecrementOpponent(characters[9]);
+    //     }
+    //     if (bizimChar == characters[6]) //insel iï¿½in
+    //     {
+    //         characters[6].IncrementHappiness();
+    //         characters[6].DecrementOpponent(characters[0]);
+    //         characters[6].DecrementOpponent(characters[9]);
+    //     }
+    //     if (bizimChar == characters[7]) //sekï¿½ler iï¿½in
+    //     {
+    //         characters[7].IncrementHappiness();
+    //         characters[7].DecrementOpponent(characters[3]);
+    //         characters[7].DecrementOpponent(characters[5]);
+    //         characters[7].DecrementOpponent(characters[9]);
+    //     }
+    //     if (bizimChar == characters[8]) //dï¿½nya barï¿½ï¿½ï¿½ï¿½sï¿½ iï¿½in
+    //     {
+    //         characters[8].IncrementHappiness();
+    //         characters[8].DecrementOpponent(characters[3]);
+    //         characters[8].DecrementOpponent(characters[5]);
+    //         characters[8].DecrementOpponent(characters[9]);
+    //     }
+    //     if (bizimChar == characters[9]) //siyasal islamcï¿½ iï¿½in
+    //     {
+    //         characters[9].IncrementHappiness();
+    //         characters[9].DecrementOpponent(characters[0]);
+    //         characters[9].DecrementOpponent(characters[1]);
+    //         characters[9].DecrementOpponent(characters[2]);
+    //         characters[9].DecrementOpponent(characters[3]);
+    //         characters[9].DecrementOpponent(characters[5]);
+    //         characters[9].DecrementOpponent(characters[6]);
+    //         characters[9].DecrementOpponent(characters[7]);
+    //         characters[9].DecrementOpponent(characters[8]);
+    //     }
+    //
+    //     
+    // }
 }
 
 

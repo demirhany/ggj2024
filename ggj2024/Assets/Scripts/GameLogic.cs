@@ -5,13 +5,12 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     // Start is called before the first frame update
-    public List<Character> judges;
     public Characters character;
     public RandomCharacterSelector characterSelector;
     public List<Character> ThreeRaandomJudges;
     void Start()
     {
-        character.deneme();
+        character.createCharacters();
         ThreeRaandomJudges = new List<Character>();
         //character = GameObject.FindGameObjectWithTag("Character").GetComponent<Characters>();
         //characterSelector = GameObject.FindGameObjectWithTag("RandomCharacterSelector").GetComponent<RandomCharacterSelector>();
@@ -21,6 +20,7 @@ public class GameLogic : MonoBehaviour
         {
             ThreeRaandomJudges.Add(character.characters[indexArray[i]]);
         }
+        character.UpdateJudgeStats(ThreeRaandomJudges[0]);
         foreach(Character c in ThreeRaandomJudges) 
         {
             Debug.Log(c.charname + " " +  c.happiness);
