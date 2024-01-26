@@ -6,17 +6,17 @@ using UnityEngine.TextCore.Text;
 
 public class Character
 {
-    public string name;
+    public string charname;
     public int happiness;
 
     public Character(string name, int happiness)
     {
-        this.name = name;
+        charname = name;
         this.happiness = happiness;
     }
     public void DisplayInfo()
     {
-        Console.WriteLine($"Name: {name}, Happiness: {happiness}");
+        //Console.WriteLine($"Name: {charname}, Happiness: {happiness}");
     }
     public void IncrementHappiness()
     {
@@ -30,11 +30,12 @@ public class Character
         }
         else
         {
-            Console.WriteLine("happinest can't be negative");
+            //Console.WriteLine("happinest can't be negative");
         }
     }
 }
-public class Characters
+
+public class Characters: MonoBehaviour 
 { /*1  Feminist ? 2, 7, 10 
     2 Siyasal Ýslamci ? 1, ~3, 6, 8, 9, 10
     3 Doða sever ? 10, 2
@@ -46,12 +47,11 @@ public class Characters
     9 Dünya barýþçýsý ? 6, 4, 10
     10 Satanist (metalci) ? 1, 6, 3, 4, 2, 7, 8, 9 */
 
-    Character[] characters = new Character[10];
+    public Character[] characters = new Character[10];
     Character SelectedCharacter;
     //// Start is called before the first frame update
-    void Start()
+    public void deneme()
     {
-        
         characters[0] = new Character("feminist", 50); //feminist -> 2 7 10  ARRAYDE 1 6 9
         characters[1] = new Character("siyasal islamci", 50); //siyasal islamci 1 3 6 8 9 10 ARRAYDE 0 2 5 7 8 9 
         characters[2] = new Character("doga sever", 50); //doga sever 2 10 ARRAYDE 1 9
@@ -141,5 +141,9 @@ public class Characters
             characters[9].DecrementOpponent(characters[7]);
             characters[9].DecrementOpponent(characters[8]);
         }
+
+        
     }
 }
+
+
