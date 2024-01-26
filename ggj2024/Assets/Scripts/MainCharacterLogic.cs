@@ -19,10 +19,10 @@ public class MainCharacterLogic : MonoBehaviour
             cards.Add(("deneme" + i, i));
         }
         selectedFiveCards = SelectRandomFiveCards();
-        foreach (var item in selectedFiveCards)
-        {
-            Debug.Log(item);
-        }
+        //foreach (var item in selectedFiveCards)
+        //{
+        //    Debug.Log(item);
+        //}
     }
 
     private void Update()

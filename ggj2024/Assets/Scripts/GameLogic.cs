@@ -6,18 +6,24 @@ public class GameLogic : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<Character> judges;
-    public Character characters;
+    public Characters character;
     public RandomCharacterSelector characterSelector;
-    public List<Character> selectedCharacter;
+    public List<Character> ThreeRaandomJudges;
     void Start()
     {
-        selectedCharacter = new List<Character>();
-        characters = GameObject.FindGameObjectWithTag("Character").GetComponent<Character>();
-        characterSelector = GameObject.FindGameObjectWithTag("RandomCharacterSelector").GetComponent<RandomCharacterSelector>();
+        character.deneme();
+        ThreeRaandomJudges = new List<Character>();
+        //character = GameObject.FindGameObjectWithTag("Character").GetComponent<Characters>();
+        //characterSelector = GameObject.FindGameObjectWithTag("RandomCharacterSelector").GetComponent<RandomCharacterSelector>();
+        List<int> indexArray = characterSelector.SelectJuris();
         
         for(int i = 0; i < 3; i++)
         {
-            selectedCharacter.Add(characters.characters[characterSelector.SelectJuris()[i]])
+            ThreeRaandomJudges.Add(character.characters[indexArray[i]]);
+        }
+        foreach(Character c in ThreeRaandomJudges) 
+        {
+            Debug.Log(c.charname + " " +  c.happiness);
         }
     }
 
