@@ -12,6 +12,17 @@ TagManager:
   - Card4
   - Card5
   - mainCharacter
+  - Bunch
+  - Card1Parent
+  - Card2Parent
+  - Card3Parent
+  - Card4Parent
+  - Card5Parent
+  - Border1
+  - Border2
+  - Border3
+  - Border4
+  - Border5
   layers:
   - Default
   - TransparentFX

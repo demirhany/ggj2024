@@ -56,6 +56,9 @@ public class MainCharacterLogic : MonoBehaviour
     
     
     
+    
+    
+    
     // public GameLogic gameLogic;
     //public Characters characterLogic;
 
@@ -124,6 +127,13 @@ public class MainCharacterLogic : MonoBehaviour
                     selectedFiveCards[2].isOnclick = false;
                     selectedFiveCards[3].isOnclick = false;
                     selectedFiveCards[4].isOnclick = false;
+                    
+                    GameObject.FindGameObjectWithTag("Border1").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.FindGameObjectWithTag("Border2").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border3").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border4").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border5").GetComponent<SpriteRenderer>().enabled = false;
+                    
                     Debug.Log(selectedFiveCards[0].name + " " + selectedFiveCards[0].isOnclick);
 
                 }
@@ -135,6 +145,13 @@ public class MainCharacterLogic : MonoBehaviour
                     selectedFiveCards[2].isOnclick = false;
                     selectedFiveCards[3].isOnclick = false;
                     selectedFiveCards[4].isOnclick = false;
+                    
+                    GameObject.FindGameObjectWithTag("Border1").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border2").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.FindGameObjectWithTag("Border3").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border4").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border5").GetComponent<SpriteRenderer>().enabled = false;
+                    
                     Debug.Log(selectedFiveCards[1].name + " " + selectedFiveCards[1].isOnclick);
                 }
                 else if (hit.collider.CompareTag("Card3"))
@@ -145,6 +162,13 @@ public class MainCharacterLogic : MonoBehaviour
                     selectedFiveCards[2].isOnclick = true;
                     selectedFiveCards[3].isOnclick = false;
                     selectedFiveCards[4].isOnclick = false;
+                    
+                    GameObject.FindGameObjectWithTag("Border1").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border2").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border3").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.FindGameObjectWithTag("Border4").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border5").GetComponent<SpriteRenderer>().enabled = false;
+                    
                     Debug.Log(selectedFiveCards[2].name + " " + selectedFiveCards[2].isOnclick);
                 }
                 else if (hit.collider.CompareTag("Card4"))
@@ -155,6 +179,13 @@ public class MainCharacterLogic : MonoBehaviour
                     selectedFiveCards[2].isOnclick = false;
                     selectedFiveCards[3].isOnclick = true;
                     selectedFiveCards[4].isOnclick = false;
+                    
+                    GameObject.FindGameObjectWithTag("Border1").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border2").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border3").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border4").GetComponent<SpriteRenderer>().enabled = true;
+                    GameObject.FindGameObjectWithTag("Border5").GetComponent<SpriteRenderer>().enabled = false;
+                    
                     Debug.Log(selectedFiveCards[3].name + " " + selectedFiveCards[3].isOnclick);
                 }
                 else if (hit.collider.CompareTag("Card5"))
@@ -165,13 +196,20 @@ public class MainCharacterLogic : MonoBehaviour
                     selectedFiveCards[2].isOnclick = false;
                     selectedFiveCards[3].isOnclick = false;
                     selectedFiveCards[4].isOnclick = true;
+                    
+                    GameObject.FindGameObjectWithTag("Border1").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border2").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border3").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border4").GetComponent<SpriteRenderer>().enabled = false;
+                    GameObject.FindGameObjectWithTag("Border5").GetComponent<SpriteRenderer>().enabled = true;
+                    
                     Debug.Log(selectedFiveCards[4].name + " " + selectedFiveCards[4].isOnclick);
                 }
 
-                if (hit.collider.CompareTag("Bunch"))
-                {
-                    Instantiate(prefabNewCard, bunch.transform.position, Quaternion.identity);
-                }
+                // if (hit.collider.CompareTag("Bunch"))
+                // {
+                //     
+                // }
             }
         }
     }
@@ -206,10 +244,10 @@ public class MainCharacterLogic : MonoBehaviour
 
                 if(selectedFiveCards[i].isOnclick == true)
                 {
-                    switch (i)
-                    {
-                        case 0
-                    }
+                    // switch (i)
+                    // {
+                    //     case 0
+                    // }
                     for(int j = 0; j < 3; j++)
                     {
                         if (selectedFiveCards[i].CharacterId == ThreeRaandomJudges[j].Id)
@@ -226,25 +264,117 @@ public class MainCharacterLogic : MonoBehaviour
                 }
             }
             
-            card1.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[0].name;
-            card2.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[1].name;
-            card3.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[2].name;
-            card4.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[3].name;
-            card5.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[4].name;
+            
 
             //SelectThreeRandomJudges();
 
             //judge1.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[0].happiness.ToString() + ThreeRaandomJudges[0].name;
             //judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].happiness.ToString() + ThreeRaandomJudges[1].name;
             //judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].happiness.ToString() + ThreeRaandomJudges[2].name;
-
-            // SceneManager.LoadScene("Listing Character");
+            
+            triggerAnimationsBoom();
+            hideBorders();
+            Invoke("updateCardText",1f);
+            Invoke("hideSelectedCard",1f);
+            Invoke("changeScene",2f);
         }
         foreach (var item in Characters.characters)
         {
             if(item.GetHappiness() == 0 || cards.Count <= 0)
                 SceneManager.LoadScene("End");
         }
+    }
+
+    void triggerAnimationsBoom()
+    {
+        if (selectedCardIndex == 0)
+        {
+            card1.GetComponent<Animator>().SetTrigger("card1Boom");
+        }
+        if (selectedCardIndex == 1)
+        {
+            card2.GetComponent<Animator>().SetTrigger("card2Boom");
+        }
+        if (selectedCardIndex == 2)
+        {
+            card3.GetComponent<Animator>().SetTrigger("card3Boom");
+        }
+        if (selectedCardIndex == 3)
+        {
+            card4.GetComponent<Animator>().SetTrigger("card4Boom");
+        }
+        if (selectedCardIndex == 4)
+        {
+            card5.GetComponent<Animator>().SetTrigger("card5Boom");
+        }
+    }
+
+    void hideBorders()
+    {
+        if (selectedCardIndex == 0)
+        {
+            
+            GameObject.FindGameObjectWithTag("Border1").GetComponent<SpriteRenderer>().enabled = false;
+            card1.GetComponentInChildren<TextMeshPro>().enabled = false;
+        }
+        if (selectedCardIndex == 1)
+        {
+            GameObject.FindGameObjectWithTag("Border2").GetComponent<SpriteRenderer>().enabled = false;
+            card2.GetComponentInChildren<TextMeshPro>().enabled = false;
+        }
+        if (selectedCardIndex == 2)
+        {
+            GameObject.FindGameObjectWithTag("Border3").GetComponent<SpriteRenderer>().enabled = false;
+            card3.GetComponentInChildren<TextMeshPro>().enabled = false;
+        }
+        if (selectedCardIndex == 3)
+        {
+            GameObject.FindGameObjectWithTag("Border4").GetComponent<SpriteRenderer>().enabled = false;
+            card4.GetComponentInChildren<TextMeshPro>().enabled = false;
+        }
+        if (selectedCardIndex == 4)
+        {
+            GameObject.FindGameObjectWithTag("Border5").GetComponent<SpriteRenderer>().enabled = false;
+            card5.GetComponentInChildren<TextMeshPro>().enabled = false;
+        }
+    }
+    void updateCardText()
+    {
+        card1.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[0].name;
+        card2.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[1].name;
+        card3.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[2].name;
+        card4.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[3].name;
+        card5.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[4].name;
+    }
+    void hideSelectedCard()
+    {
+        Instantiate(prefabNewCard, bunch.transform.position, Quaternion.identity);
+        
+        if (selectedCardIndex == 0)
+        {
+            card1.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        if (selectedCardIndex == 1)
+        {
+            card2.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        if (selectedCardIndex == 2)
+        {
+            card3.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        if (selectedCardIndex == 3)
+        {
+            card4.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        if (selectedCardIndex == 4)
+        {
+            card5.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+    }
+    void changeScene()
+    {
+        SceneManager.LoadScene("Listing Character");
     }
 
     private void OnApplicationQuit()
