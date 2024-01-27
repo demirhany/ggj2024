@@ -6,12 +6,14 @@ using UnityEngine.TextCore.Text;
 
 public class Character
 {
-    public string charname;
+    public int Id;
+    public string name;
     public int happiness;
 
-    public Character(string name, int happiness)
+    public Character(int Id, string name, int happiness)
     {
-        charname = name;
+        this.Id = Id;
+        this.name = name;
         this.happiness = happiness;
     }
     public void DisplayInfo()
@@ -51,16 +53,16 @@ public class Characters: MonoBehaviour
     //// Start is called before the first frame update
     public void createCharacters()
     {
-        characters[0] = new Character("feminist", 50); //feminist -> 2 7 10  ARRAYDE 1 6 9
-        characters[1] = new Character("siyasal islamci", 50); //siyasal islamci 1 3 6 8 9 10 ARRAYDE 0 2 5 7 8 9 
-        characters[2] = new Character("doga sever", 50); //doga sever 2 10 ARRAYDE 1 9
-        characters[3] = new Character("milliyetci", 50); // milliyetci 8 9 10 ARRAYDE 7 8 9
-        characters[4] = new Character("geek", 50); // geekler 
-        characters[5] = new Character("asiri sanatci", 50); //asiri sanatci 2 10 ARRAYDE 1 9
-        characters[6] = new Character("insel", 50); //insel 1 10 ARRAYDE 0 9
-        characters[7] = new Character("sekuler", 50); // sekuler 4 6 10 ARRAYDE 3 5 9
-        characters[8] = new Character("dunya bariscisi", 50); // dunya bariscisi  4 6 10 ARRAYDE 3 5 9
-        characters[9] = new Character("satanist", 50); // satanist 1 2 3 4 6 7 8 9 ARRAYDE 0 1 2 3 5 6 7 8
+        characters[0] = new Character(0,"feminist", 50); //feminist -> 2 7 10  ARRAYDE 1 6 9
+        characters[1] = new Character(1,"siyasal islamci", 50); //siyasal islamci 1 3 6 8 9 10 ARRAYDE 0 2 5 7 8 9 
+        characters[2] = new Character(2,"doga sever", 50); //doga sever 2 10 ARRAYDE 1 9
+        characters[3] = new Character(3,"milliyetci", 50); // milliyetci 8 9 10 ARRAYDE 7 8 9
+        characters[4] = new Character(4,"geek", 50); // geekler 
+        characters[5] = new Character(5,"asiri sanatci", 50); //asiri sanatci 2 10 ARRAYDE 1 9
+        characters[6] = new Character(6,"insel", 50); //insel 1 10 ARRAYDE 0 9
+        characters[7] = new Character(7,"sekuler", 50); // sekuler 4 6 10 ARRAYDE 3 5 9
+        characters[8] = new Character(8,"dunya bariscisi", 50); // dunya bariscisi  4 6 10 ARRAYDE 3 5 9
+        characters[9] = new Character(9,"satanist", 50); // satanist 1 2 3 4 6 7 8 9 ARRAYDE 0 1 2 3 5 6 7 8
 
     }
 
