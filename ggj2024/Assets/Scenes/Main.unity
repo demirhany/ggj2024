@@ -1519,8 +1519,6 @@ MonoBehaviour:
   judge1: {fileID: 754685580}
   judge2: {fileID: 357951323}
   judge3: {fileID: 705719954}
-  gameLogic: {fileID: 1361895311}
-  characterLogic: {fileID: 1288553331}
 --- !u!4 &953872706
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,7 +2102,7 @@ GameObject:
   - component: {fileID: 1361895311}
   m_Layer: 0
   m_Name: Game Logic
-  m_TagString: Untagged
+  m_TagString: Game Logic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2121,8 +2119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8608ccb7f8b8b204b923651450647878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1288553331}
-  characterSelector: {fileID: 34621944}
 --- !u!4 &1361895312
 Transform:
   m_ObjectHideFlags: 0

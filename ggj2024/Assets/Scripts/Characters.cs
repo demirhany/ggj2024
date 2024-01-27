@@ -9,7 +9,7 @@ public class Character
     public int Id;
     public string name;
     public int happiness;
-
+    public bool isStatChanged;
     public Character(int Id, string name, int happiness)
     {
         this.Id = Id;
@@ -22,10 +22,12 @@ public class Character
     }
     public void IncrementHappiness()
     {
+        
         this.happiness += 10;
     }
     public void DecrementOpponent(Character character2)
     {
+        
         if (character2.happiness > 0)
         {
             character2.happiness -= 10;
@@ -66,81 +68,202 @@ public class Characters: MonoBehaviour
 
     }
 
-    public static void UpdateJudgeStats(Character bizimChar)
+    public static void IncreaseJudgeHappiness(Character character)
+    {
+        if (character == characters[0]) //feminist i�in
+        {
+            characters[0].isStatChanged = true;
+            characters[0].IncrementHappiness();
+        }
+        if (character == characters[1]) //siyasal islamc� i�in
+        {
+            characters[1].isStatChanged = true;
+            characters[1].IncrementHappiness();
+        }
+        if (character == characters[2]) //do�a sever i�in
+        {
+            characters[2].isStatChanged = true;
+            characters[2].IncrementHappiness();
+        }
+        if (character == characters[3]) //milliyet�i i�in
+        {
+            characters[3].isStatChanged = true;
+            characters[3].IncrementHappiness();
+        }
+        if (character == characters[4]) //geek i�in
+        {
+            characters[4].isStatChanged = true;
+            characters[4].IncrementHappiness();
+        }
+        if (character == characters[5]) //asiri sanatci i�in
+        {
+            characters[5].isStatChanged = true;
+            characters[5].IncrementHappiness();
+        }
+        if (character == characters[6]) //insel i�in
+        {
+            characters[6].isStatChanged = true;
+            characters[6].IncrementHappiness();
+        }
+        if (character == characters[7]) //sek�ler i�in
+        {
+            characters[7].isStatChanged = true;
+            characters[7].IncrementHappiness();
+        }
+        if (character == characters[8]) //d�nya bar����s� i�in
+        {
+            characters[8].isStatChanged = true;
+            characters[8].IncrementHappiness();
+        }
+        if (character == characters[9]) //siyasal islamc� i�in
+        {
+            characters[9].isStatChanged = true;
+            characters[9].IncrementHappiness();
+        }
+    }
+
+    public static void DecreaseJudgeHappiness(Character bizimChar)
     {
         if (bizimChar == characters[0]) //feminist i�in
         {
-            characters[0].IncrementHappiness();
-            characters[0].DecrementOpponent(characters[1]);
-            characters[0].DecrementOpponent(characters[6]);
-            characters[0].DecrementOpponent(characters[9]);
+            characters[0].isStatChanged = true;
+            characters[0].DecrementOpponent(characters[0]);
+ 
         }
         if (bizimChar == characters[1]) //siyasal islamc� i�in
         {
-            characters[1].IncrementHappiness();
-            characters[1].DecrementOpponent(characters[0]);
-            characters[1].DecrementOpponent(characters[2]);
-            characters[1].DecrementOpponent(characters[5]);
-            characters[1].DecrementOpponent(characters[7]);
-            characters[1].DecrementOpponent(characters[8]);
-            characters[1].DecrementOpponent(characters[9]);
+            characters[1].isStatChanged = true;
+            characters[1].DecrementOpponent(characters[1]);
         }
         if (bizimChar == characters[2]) //do�a sever i�in
         {
-            characters[2].IncrementHappiness();
-            characters[2].DecrementOpponent(characters[1]);
-            characters[2].DecrementOpponent(characters[9]);
+            characters[2].isStatChanged = true;;
+            characters[2].DecrementOpponent(characters[2]);
         }
         if (bizimChar == characters[3]) //milliyet�i i�in
         {
-            characters[3].IncrementHappiness();
-            characters[3].DecrementOpponent(characters[7]);
-            characters[3].DecrementOpponent(characters[8]);
-            characters[3].DecrementOpponent(characters[9]);
+            characters[3].isStatChanged = true;
+            characters[3].DecrementOpponent(characters[3]);
         }
         if (bizimChar == characters[4]) //geek i�in
         {
-            characters[4].IncrementHappiness();
+            characters[4].isStatChanged = true;
+            characters[4].DecrementOpponent(characters[4]);
         }
         if (bizimChar == characters[5]) //asiri sanatci i�in
         {
-            characters[5].IncrementHappiness();
-            characters[5].DecrementOpponent(characters[1]);
-            characters[5].DecrementOpponent(characters[9]);
+            characters[5].isStatChanged = true;
+            characters[5].DecrementOpponent(characters[5]);
         }
         if (bizimChar == characters[6]) //insel i�in
         {
-            characters[6].IncrementHappiness();
-            characters[6].DecrementOpponent(characters[0]);
-            characters[6].DecrementOpponent(characters[9]);
+            characters[6].isStatChanged = true;
+            characters[6].DecrementOpponent(characters[6]);
         }
         if (bizimChar == characters[7]) //sek�ler i�in
         {
-            characters[7].IncrementHappiness();
-            characters[7].DecrementOpponent(characters[3]);
-            characters[7].DecrementOpponent(characters[5]);
-            characters[7].DecrementOpponent(characters[9]);
+            characters[7].isStatChanged = true;
+            characters[7].DecrementOpponent(characters[7]);
         }
         if (bizimChar == characters[8]) //d�nya bar����s� i�in
         {
-            characters[8].IncrementHappiness();
-            characters[8].DecrementOpponent(characters[3]);
-            characters[8].DecrementOpponent(characters[5]);
-            characters[8].DecrementOpponent(characters[9]);
+            characters[8].isStatChanged = true;
+            characters[8].DecrementOpponent(characters[8]);
         }
         if (bizimChar == characters[9]) //siyasal islamc� i�in
         {
-            characters[9].IncrementHappiness();
-            characters[9].DecrementOpponent(characters[0]);
-            characters[9].DecrementOpponent(characters[1]);
-            characters[9].DecrementOpponent(characters[2]);
-            characters[9].DecrementOpponent(characters[3]);
-            characters[9].DecrementOpponent(characters[5]);
-            characters[9].DecrementOpponent(characters[6]);
-            characters[9].DecrementOpponent(characters[7]);
-            characters[9].DecrementOpponent(characters[8]);
+            characters[9].isStatChanged = true;
+            characters[9].DecrementOpponent(characters[9]);
         }
     }
+
+
+    //public static void UpdateJudgeStats(Character bizimChar)
+    //{
+    //    if (bizimChar == characters[0]) //feminist i�in
+    //    {
+    //        characters[0].isStatChanged = true;
+    //        characters[0].IncrementHappiness();
+    //        characters[0].DecrementOpponent(characters[1]);
+    //        characters[0].DecrementOpponent(characters[6]);
+    //        characters[0].DecrementOpponent(characters[9]);
+    //        Debug.Log("Feminist Happiness " + characters[0].happiness);
+    //    }
+    //    if (bizimChar == characters[1]) //siyasal islamc� i�in
+    //    {
+    //        characters[1].isStatChanged = true;
+    //        characters[1].IncrementHappiness();
+    //        characters[1].DecrementOpponent(characters[0]);
+    //        characters[1].DecrementOpponent(characters[2]);
+    //        characters[1].DecrementOpponent(characters[5]);
+    //        characters[1].DecrementOpponent(characters[7]);
+    //        characters[1].DecrementOpponent(characters[8]);
+    //        characters[1].DecrementOpponent(characters[9]);
+    //    }
+    //    if (bizimChar == characters[2]) //do�a sever i�in
+    //    {
+    //        characters[2].isStatChanged = true;
+    //        characters[2].IncrementHappiness();
+    //        characters[2].DecrementOpponent(characters[1]);
+    //        characters[2].DecrementOpponent(characters[9]);
+    //    }
+    //    if (bizimChar == characters[3]) //milliyet�i i�in
+    //    {
+    //        characters[3].isStatChanged = true;
+    //        characters[3].IncrementHappiness();
+    //        characters[3].DecrementOpponent(characters[7]);
+    //        characters[3].DecrementOpponent(characters[8]);
+    //        characters[3].DecrementOpponent(characters[9]);
+    //    }
+    //    if (bizimChar == characters[4]) //geek i�in
+    //    {
+    //        characters[4].isStatChanged = true;
+    //        characters[4].IncrementHappiness();
+    //    }
+    //    if (bizimChar == characters[5]) //asiri sanatci i�in
+    //    {
+    //        characters[5].isStatChanged = true;
+    //        characters[5].IncrementHappiness();
+    //        characters[5].DecrementOpponent(characters[1]);
+    //        characters[5].DecrementOpponent(characters[9]);
+    //    }
+    //    if (bizimChar == characters[6]) //insel i�in
+    //    {
+    //        characters[6].isStatChanged = true;
+    //        characters[6].IncrementHappiness();
+    //        characters[6].DecrementOpponent(characters[0]);
+    //        characters[6].DecrementOpponent(characters[9]);
+    //    }
+    //    if (bizimChar == characters[7]) //sek�ler i�in
+    //    {
+    //        characters[7].isStatChanged = true;
+    //        characters[7].IncrementHappiness();
+    //        characters[7].DecrementOpponent(characters[3]);
+    //        characters[7].DecrementOpponent(characters[5]);
+    //        characters[7].DecrementOpponent(characters[9]);
+    //    }
+    //    if (bizimChar == characters[8]) //d�nya bar����s� i�in
+    //    {
+    //        characters[8].isStatChanged = true;
+    //        characters[8].IncrementHappiness();
+    //        characters[8].DecrementOpponent(characters[3]);
+    //        characters[8].DecrementOpponent(characters[5]);
+    //        characters[8].DecrementOpponent(characters[9]);
+    //    }
+    //    if (bizimChar == characters[9]) //siyasal islamc� i�in
+    //    {
+    //        characters[9].isStatChanged = true;
+    //        characters[9].IncrementHappiness();
+    //        characters[9].DecrementOpponent(characters[0]);
+    //        characters[9].DecrementOpponent(characters[1]);
+    //        characters[9].DecrementOpponent(characters[2]);
+    //        characters[9].DecrementOpponent(characters[3]);
+    //        characters[9].DecrementOpponent(characters[5]);
+    //        characters[9].DecrementOpponent(characters[6]);
+    //        characters[9].DecrementOpponent(characters[7]);
+    //        characters[9].DecrementOpponent(characters[8]);
+    //    }
+    //}
 
     //// Update is called once per frame
     // void Update()
