@@ -3,7 +3,17 @@ guid: 64c0d0dcb8059674e9f0ac20e32e6df8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - card1: {instanceID: 0}
+  - card2: {instanceID: 0}
+  - card3: {instanceID: 0}
+  - card4: {instanceID: 0}
+  - card5: {instanceID: 0}
+  - judge1: {instanceID: 0}
+  - judge2: {instanceID: 0}
+  - judge3: {instanceID: 0}
+  - prefabNewCard: {instanceID: 0}
+  - bunch: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
