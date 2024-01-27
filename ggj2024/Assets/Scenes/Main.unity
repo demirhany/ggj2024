@@ -1516,6 +1516,11 @@ MonoBehaviour:
   card3: {fileID: 1101312088}
   card4: {fileID: 1092750977}
   card5: {fileID: 686795561}
+  judge1: {fileID: 754685580}
+  judge2: {fileID: 357951323}
+  judge3: {fileID: 705719954}
+  gameLogic: {fileID: 1361895311}
+  characterLogic: {fileID: 1288553331}
 --- !u!4 &953872706
 Transform:
   m_ObjectHideFlags: 0

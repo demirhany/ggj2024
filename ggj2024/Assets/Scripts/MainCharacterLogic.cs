@@ -34,12 +34,24 @@ public class MainCharacterLogic : MonoBehaviour
     public GameObject card3;
     public GameObject card4;
     public GameObject card5;
+    public GameObject judge1;
+    public GameObject judge2;
+    public GameObject judge3;
+    public static List<Character> ThreeRaandomJudges;
+    // public GameLogic gameLogic;
+    //public Characters characterLogic;
 
     private void Awake()
     {
         selectedFiveCards = new List<Card>();
-        cards = new List<Card>(); 
-        
+        cards = new List<Card>();
+        ThreeRaandomJudges = new List<Character>();
+        Characters.createCharacters();
+        // gameLogic = GameObject.FindGameObjectWithTag("Game Logic").GetComponent<GameLogic>();
+        //characterLogic = GameObject.FindGameObjectWithTag("Character").GetComponent<Characters>();
+        //characterLogic = new Characters();
+
+
         InitializeCards();
 
         // bu kartlari, kartlari array olarak donduren bir fonksiyonu kullanarak cekecegiz
@@ -57,6 +69,12 @@ public class MainCharacterLogic : MonoBehaviour
         card3.GetComponentInChildren<TextMeshPro>().text = cardTexts[2];
         card4.GetComponentInChildren<TextMeshPro>().text = cardTexts[3];
         card5.GetComponentInChildren<TextMeshPro>().text = cardTexts[4];
+
+        SelectThreeRandomJudges();
+
+        judge1.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[0].happiness.ToString();
+        judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].happiness.ToString();
+        judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].happiness.ToString();
     }
 
 
@@ -130,6 +148,16 @@ public class MainCharacterLogic : MonoBehaviour
         }
     }
 
+    public static void SelectThreeRandomJudges()
+    {
+        List<int> indexArray = RandomCharacterSelector.SelectJuris();
+        if(ThreeRaandomJudges.Count >= 3 ) { ThreeRaandomJudges.Clear(); }
+        for (int i = 0; i < 3; i++)
+        {
+            ThreeRaandomJudges.Add(Characters.characters[indexArray[i]]);
+        }
+    }
+
     public Card SelectRandomOneCard()
     {
         Card selectedCard = new Card();
@@ -158,6 +186,12 @@ public class MainCharacterLogic : MonoBehaviour
         card5.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[4].name;
 
 
+
+        SelectThreeRandomJudges();
+
+        judge1.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[0].happiness.ToString() + ThreeRaandomJudges[0].name;
+        judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].happiness.ToString() + ThreeRaandomJudges[1].name;
+        judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].happiness.ToString() + ThreeRaandomJudges[2].name;
     }
     
     

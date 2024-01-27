@@ -49,9 +49,9 @@ public class Characters: MonoBehaviour
     9 D�nya bar����s� ? 6, 4, 10
     10 Satanist (metalci) ? 1, 6, 3, 4, 2, 7, 8, 9 */
 
-    public Character[] characters = new Character[10];
+    public static Character[] characters = new Character[10];
     //// Start is called before the first frame update
-    public void createCharacters()
+    public static void createCharacters()
     {
         characters[0] = new Character(0,"feminist", 50); //feminist -> 2 7 10  ARRAYDE 1 6 9
         characters[1] = new Character(1,"siyasal islamci", 50); //siyasal islamci 1 3 6 8 9 10 ARRAYDE 0 2 5 7 8 9 
@@ -66,7 +66,7 @@ public class Characters: MonoBehaviour
 
     }
 
-    public void UpdateJudgeStats(Character bizimChar)
+    public static void UpdateJudgeStats(Character bizimChar)
     {
         if (bizimChar == characters[0]) //feminist i�in
         {
