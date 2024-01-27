@@ -42,6 +42,20 @@ public class MainCharacterLogic : MonoBehaviour
     public GameObject judge2;
     public GameObject judge3;
     public static List<Character> ThreeRaandomJudges;
+    
+    
+    //newCardAnimation part start
+
+    public GameObject prefabNewCard;
+    public int selectedCardIndex;
+    public GameObject bunch;
+    
+    
+    //newCardAnimation part end
+    
+    
+    
+    
     // public GameLogic gameLogic;
     //public Characters characterLogic;
 
@@ -91,17 +105,17 @@ public class MainCharacterLogic : MonoBehaviour
             //change scene to end game
         }
 
-        // Mouse sol tuþa týklanýp týklanmadýðýný kontrol et
+        // Mouse sol tuï¿½a tï¿½klanï¿½p tï¿½klanmadï¿½ï¿½ï¿½nï¿½ kontrol et
         if (Input.GetMouseButtonDown(0))
         {
-            // Mouse pozisyonundan bir ýþýn oluþtur
+            // Mouse pozisyonundan bir ï¿½ï¿½ï¿½n oluï¿½tur
             Vector2 rayPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(rayPosition, Vector2.zero);
 
-            // Iþýma çarpan bir nesne var mý kontrol et
+            // Iï¿½ï¿½ma ï¿½arpan bir nesne var mï¿½ kontrol et
             if (hit.collider != null)
             {
-                // Eðer çarpan nesnenin bir etiketi varsa (baþka kriterleri de kullanabilirsiniz)
+                // Eï¿½er ï¿½arpan nesnenin bir etiketi varsa (baï¿½ka kriterleri de kullanabilirsiniz)
                 if (hit.collider.CompareTag("Card1"))
                 {
                     isCardSelected = true;
@@ -184,6 +198,7 @@ public class MainCharacterLogic : MonoBehaviour
             Card newCard = SelectRandomOneCard();
             for(int i = 0; i < 5; i++) 
             {
+
                 if(selectedFiveCards[i].isOnclick == true)
                 {
                     for(int j = 0; j < 3; j++)
@@ -195,12 +210,13 @@ public class MainCharacterLogic : MonoBehaviour
                             if (selectedFiveCards[i].Dislikes[k] == ThreeRaandomJudges[j].Id)
                                 Characters.DecreaseJudgeHappiness(ThreeRaandomJudges[j]);
                         }
-                    }
-
+                    } 
                     selectedFiveCards.RemoveAt(i);
                     selectedFiveCards.Insert(i, newCard);
+                    selectedCardIndex = i;
                 }
             }
+            Instantiate(prefabNewCard, bunch.transform.position, Quaternion.identity);
             card1.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[0].name;
             card2.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[1].name;
             card3.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[2].name;
