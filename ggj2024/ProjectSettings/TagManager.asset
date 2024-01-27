@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Character
   - RandomCharacterSelector
+  - Card1
+  - Card2
+  - Card3
+  - Card4
+  - Card5
   layers:
   - Default
   - TransparentFX

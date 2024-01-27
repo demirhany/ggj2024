@@ -8,6 +8,7 @@ public class GameLogic : MonoBehaviour
     public Characters character;
     public RandomCharacterSelector characterSelector;
     public List<Character> ThreeRaandomJudges;
+
     void Start()
     {
         character.createCharacters();
