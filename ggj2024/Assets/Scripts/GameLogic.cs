@@ -23,7 +23,7 @@ public class GameLogic : MonoBehaviour
         character.UpdateJudgeStats(ThreeRaandomJudges[0]);
         foreach(Character c in ThreeRaandomJudges) 
         {
-            Debug.Log(c.charname + " " +  c.happiness);
+            Debug.Log(c.name + " " +  c.happiness);
         }
     }
 
@@ -32,4 +32,6 @@ public class GameLogic : MonoBehaviour
     {
         
     }
+
+    
 }
