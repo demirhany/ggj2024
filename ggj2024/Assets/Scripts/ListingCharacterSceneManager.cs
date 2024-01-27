@@ -35,10 +35,10 @@ public class ListingCharacterSceneManager : MonoBehaviour
         for(int i = 0; i < 10; i++)
         {
             if (Characters.characters[i].isStatChanged == true)
-                judgeList[i].GetComponentInChildren<TextMeshPro>().text = Characters.characters[i].happiness.ToString() + " " + Characters.characters[i].name + " the stat was changed";
+                judgeList[i].GetComponentInChildren<TextMeshPro>().text = Characters.characters[i].GetHappiness() + " " + Characters.characters[i].name + " the stat was changed";
 
             else
-                judgeList[i].GetComponentInChildren<TextMeshPro>().text = Characters.characters[i].happiness.ToString() + " " + Characters.characters[i].name;
+                judgeList[i].GetComponentInChildren<TextMeshPro>().text = Characters.characters[i].GetHappiness() + " " + Characters.characters[i].name;
         }
         
     }
@@ -51,5 +51,10 @@ public class ListingCharacterSceneManager : MonoBehaviour
         }
 
         SceneManager.LoadScene("Main");
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

@@ -90,9 +90,9 @@ public class MainCharacterLogic : MonoBehaviour
 
         SelectThreeRandomJudges();
 
-        judge1.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[0].happiness.ToString() + " " + ThreeRaandomJudges[0].name;
-        judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].happiness.ToString() + " " + ThreeRaandomJudges[1].name;
-        judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].happiness.ToString() + " " + ThreeRaandomJudges[2].name;
+        judge1.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[0].GetHappiness() + " " + ThreeRaandomJudges[0].name;
+        judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].GetHappiness() + " " + ThreeRaandomJudges[1].name;
+        judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].GetHappiness() + " " + ThreeRaandomJudges[2].name;
     }
 
 
@@ -232,17 +232,26 @@ public class MainCharacterLogic : MonoBehaviour
             card4.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[3].name;
             card5.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[4].name;
 
-            SelectThreeRandomJudges();
+            //SelectThreeRandomJudges();
 
-            judge1.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[0].happiness.ToString() + ThreeRaandomJudges[0].name;
-            judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].happiness.ToString() + ThreeRaandomJudges[1].name;
-            judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].happiness.ToString() + ThreeRaandomJudges[2].name;
+            //judge1.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[0].happiness.ToString() + ThreeRaandomJudges[0].name;
+            //judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].happiness.ToString() + ThreeRaandomJudges[1].name;
+            //judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].happiness.ToString() + ThreeRaandomJudges[2].name;
 
             // SceneManager.LoadScene("Listing Character");
         }
+        foreach (var item in Characters.characters)
+        {
+            if(item.GetHappiness() == 0 || cards.Count <= 0)
+                SceneManager.LoadScene("End");
+        }
     }
-    
-    
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     // Initialize Card with starting values
     public void InitializeCards()
     {
