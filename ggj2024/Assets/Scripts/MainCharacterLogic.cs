@@ -167,6 +167,11 @@ public class MainCharacterLogic : MonoBehaviour
                     selectedFiveCards[4].isOnclick = true;
                     Debug.Log(selectedFiveCards[4].name + " " + selectedFiveCards[4].isOnclick);
                 }
+
+                if (hit.collider.CompareTag("Bunch"))
+                {
+                    Instantiate(prefabNewCard, bunch.transform.position, Quaternion.identity);
+                }
             }
         }
     }
@@ -201,6 +206,10 @@ public class MainCharacterLogic : MonoBehaviour
 
                 if(selectedFiveCards[i].isOnclick == true)
                 {
+                    switch (i)
+                    {
+                        case 0
+                    }
                     for(int j = 0; j < 3; j++)
                     {
                         if (selectedFiveCards[i].CharacterId == ThreeRaandomJudges[j].Id)
@@ -216,7 +225,7 @@ public class MainCharacterLogic : MonoBehaviour
                     selectedCardIndex = i;
                 }
             }
-            Instantiate(prefabNewCard, bunch.transform.position, Quaternion.identity);
+            
             card1.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[0].name;
             card2.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[1].name;
             card3.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[2].name;
@@ -229,7 +238,7 @@ public class MainCharacterLogic : MonoBehaviour
             judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].happiness.ToString() + ThreeRaandomJudges[1].name;
             judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].happiness.ToString() + ThreeRaandomJudges[2].name;
 
-            SceneManager.LoadScene("Listing Character");
+            // SceneManager.LoadScene("Listing Character");
         }
     }
     
