@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class RandomCharacterSelector : MonoBehaviour
 {
-   public List<int> SelectJuris()
+   public static List<int> SelectJuris()
    {
       List<int> Selected = new List<int>();
       
