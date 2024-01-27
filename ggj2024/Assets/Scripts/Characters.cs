@@ -22,8 +22,9 @@ public class Character
     }
     public void IncrementHappiness()
     {
-        
-        this.happiness += 10;
+        happiness += 10;
+        PlayerPrefs.SetInt("Happiness_" + Id, happiness);
+        PlayerPrefs.Save();
     }
     public void DecrementOpponent(Character character2)
     {
@@ -31,11 +32,21 @@ public class Character
         if (character2.happiness > 0)
         {
             character2.happiness -= 10;
+            PlayerPrefs.SetInt("Happiness_" + Id, happiness);
+            PlayerPrefs.Save();
         }
         else
         {
             //Console.WriteLine("happinest can't be negative");
         }
+    }
+    public int GetHappiness()
+    {
+        if (PlayerPrefs.HasKey("Happiness_" + Id))
+        {
+            happiness = PlayerPrefs.GetInt("Happiness_" + Id);
+        }
+        return happiness;
     }
 }
 
