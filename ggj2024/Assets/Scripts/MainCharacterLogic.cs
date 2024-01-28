@@ -131,6 +131,14 @@ public class MainCharacterLogic : MonoBehaviour
         updateJudgeSprites(ThreeRaandomJudges[2].Id,judge3,HealthBar3);
     }
 
+    void HideImages()
+    {
+        GameObject.FindGameObjectWithTag("image1").GetComponent<Image>().enabled = false;
+        GameObject.FindGameObjectWithTag("image2").GetComponent<Image>().enabled = false;
+        GameObject.FindGameObjectWithTag("image3").GetComponent<Image>().enabled = false;
+        GameObject.FindGameObjectWithTag("image4").GetComponent<Image>().enabled = false;
+        GameObject.FindGameObjectWithTag("image5").GetComponent<Image>().enabled = false;
+    }
     void updateJudgeSprites(int Id, GameObject judge, HealthBar healthBar)
     {
         judge.GetComponent<Animator>().enabled = false;
@@ -377,6 +385,7 @@ public class MainCharacterLogic : MonoBehaviour
             
             triggerAnimationsBoom();
             hideBorders();
+            HideImages();
             Invoke("updateCardText",1f);
             Invoke("hideSelectedCard",1f);
             Invoke("changeScene",2f);
