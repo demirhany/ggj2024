@@ -16,7 +16,19 @@ public class ListingCharacterSceneManager : MonoBehaviour
     public GameObject judge9;
     public GameObject judge10;
 
+    public Sprite Feminist;
+    public Sprite siyasalislamci;
+    public Sprite Dogaci;
+    public Sprite Millitetci;
+    public Sprite Geek;
+    public Sprite sanatci;
+    public Sprite Insel;
+    public Sprite sekuler;
+    public Sprite DunyaBarisi;
+    public Sprite Satanist;
+
     public List<GameObject> judgeList;
+    public List<Sprite> judgeSpriteList;
 
     private void Start()
     {
@@ -32,13 +44,32 @@ public class ListingCharacterSceneManager : MonoBehaviour
         judgeList.Add(judge9);
         judgeList.Add(judge10);
 
-        for(int i = 0; i < 10; i++)
+        judgeSpriteList = new List<Sprite>();
+        judgeSpriteList.Add(Feminist);
+        judgeSpriteList.Add(siyasalislamci);
+        judgeSpriteList.Add(Dogaci);
+        judgeSpriteList.Add(Millitetci);
+        judgeSpriteList.Add(Geek);
+        judgeSpriteList.Add(sanatci);
+        judgeSpriteList.Add(Insel);
+        judgeSpriteList.Add(sekuler);
+        judgeSpriteList.Add(DunyaBarisi);
+        judgeSpriteList.Add(Satanist);
+
+        for (int i = 0; i < 10; i++)
         {
-            if (Characters.characters[i].isStatChanged == true)
+            if (Characters.characters[i].isStatChanged == true) 
+            {
+                judgeList[i].GetComponent<SpriteRenderer>().sprite = judgeSpriteList[i];
                 judgeList[i].GetComponentInChildren<TextMeshPro>().text = Characters.characters[i].GetHappiness() + " " + Characters.characters[i].name + " the stat was changed";
+            }
 
             else
-                judgeList[i].GetComponentInChildren<TextMeshPro>().text = Characters.characters[i].GetHappiness() + " " + Characters.characters[i].name;
+            {
+                judgeList[i].GetComponent<SpriteRenderer>().sprite = judgeSpriteList[i];
+                judgeList[i].GetComponentInChildren<TextMeshPro>().text = Characters.characters[i].GetHappiness().ToString();
+
+            }
         }
         
     }
