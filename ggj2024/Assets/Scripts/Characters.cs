@@ -10,6 +10,7 @@ public class Character
     public string name;
     public int happiness;
     public bool isStatChanged;
+    public int happinessValue;
     public Character(int Id, string name, int happiness)
     {
         this.Id = Id;
@@ -25,6 +26,7 @@ public class Character
         happiness += 10;
         PlayerPrefs.SetInt("Happiness_" + Id, happiness);
         PlayerPrefs.Save();
+        happinessValue = 0;
     }
     public void DecrementOpponent(Character character2)
     {
@@ -34,6 +36,7 @@ public class Character
             character2.happiness -= 10;
             PlayerPrefs.SetInt("Happiness_" + Id, happiness);
             PlayerPrefs.Save();
+            happinessValue = 1;
         }
         else
         {

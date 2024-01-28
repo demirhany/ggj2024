@@ -42,6 +42,21 @@ public class MainCharacterLogic : MonoBehaviour
     public GameObject judge2;
     public GameObject judge3;
     public static List<Character> ThreeRaandomJudges;
+
+
+    public Sprite Feminist;
+    public Sprite siyasalislamci;
+    public Sprite Dogaci;
+    public Sprite Millitetci;
+    public Sprite Geek;
+    public Sprite sanatci;
+    public Sprite Insel;
+    public Sprite sekuler;
+    public Sprite DunyaBarisi;
+    public Sprite Satanist;
+    
+    
+    
     
     
     //newCardAnimation part start
@@ -52,8 +67,8 @@ public class MainCharacterLogic : MonoBehaviour
     
     
     //newCardAnimation part end
-    
-    
+
+    public Animator myAnimator;
     
     
     
@@ -71,7 +86,7 @@ public class MainCharacterLogic : MonoBehaviour
         // gameLogic = GameObject.FindGameObjectWithTag("Game Logic").GetComponent<GameLogic>();
         //characterLogic = GameObject.FindGameObjectWithTag("Character").GetComponent<Characters>();
         //characterLogic = new Characters();
-
+        
 
         InitializeCards();
 
@@ -92,10 +107,56 @@ public class MainCharacterLogic : MonoBehaviour
         card5.GetComponentInChildren<TextMeshPro>().text = cardTexts[4];
 
         SelectThreeRandomJudges();
+        
+        updateJudgeSprites(ThreeRaandomJudges[0].Id,judge1);
+        updateJudgeSprites(ThreeRaandomJudges[1].Id,judge2);
+        updateJudgeSprites(ThreeRaandomJudges[2].Id,judge3);
+    }
 
-        judge1.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[0].GetHappiness() + " " + ThreeRaandomJudges[0].name;
-        judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].GetHappiness() + " " + ThreeRaandomJudges[1].name;
-        judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].GetHappiness() + " " + ThreeRaandomJudges[2].name;
+    void updateJudgeSprites(int id, GameObject judge)
+    {
+        judge.GetComponent<Animator>().enabled = false;
+
+        if (id == 0)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = Feminist;
+        }
+        if (id == 1)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = siyasalislamci;
+        }
+        if (id == 2)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = Dogaci;
+        }
+        if (id == 3)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = Millitetci;
+        }
+        if (id == 4)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = Geek;
+        }
+        if (id == 5)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = sanatci;
+        }
+        if (id == 6)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = Insel;
+        }
+        if (id == 7)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = sekuler;
+        }
+        if (id == 8)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = DunyaBarisi;
+        }
+        if (id == 9)
+        {
+            judge.GetComponent<SpriteRenderer>().sprite = Satanist;
+        }
     }
 
 
@@ -264,6 +325,10 @@ public class MainCharacterLogic : MonoBehaviour
                 }
             }
             
+            startAnimation(ThreeRaandomJudges[0].Id,ThreeRaandomJudges[0].happinessValue,judge1);
+            startAnimation(ThreeRaandomJudges[1].Id,ThreeRaandomJudges[1].happinessValue,judge2);
+            startAnimation(ThreeRaandomJudges[2].Id,ThreeRaandomJudges[2].happinessValue,judge3);
+            
             
 
             //SelectThreeRandomJudges();
@@ -282,6 +347,170 @@ public class MainCharacterLogic : MonoBehaviour
         {
             if(item.GetHappiness() == 0 || cards.Count <= 0)
                 SceneManager.LoadScene("End");
+        }
+    }
+
+    void startAnimation(int id, int happinessValue, GameObject judge)
+    {
+        judge.GetComponent<Animator>().enabled = true;
+        if (id == 0)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 0);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 0);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
+        }
+
+        if (id == 1)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 1);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 1);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
+        }
+
+        if (id == 2)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 2);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 2);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
+        }
+
+        if (id == 3)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 3);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 3);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
+        }
+
+        if (id == 4)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 4);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 4);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
+        }
+
+        if (id == 5)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 5);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 5);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
+        }
+
+        if (id == 6)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 6);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 6);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
+        }
+
+        if (id == 7)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 7);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 7);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
+        }
+
+        if (id == 8)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 8);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 8);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
+        }
+
+        if (id == 9)
+        {
+            if (happinessValue == 0)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 9);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", 1);
+            }
+
+            if (happinessValue == 1)
+            {
+                judge.GetComponent<Animator>().SetInteger("id", 9);
+                judge.GetComponent<Animator>().SetInteger("happinessValue", -1);
+
+            }
         }
     }
 
