@@ -16,6 +16,17 @@ public class ListingCharacterSceneManager : MonoBehaviour
     public GameObject judge9;
     public GameObject judge10;
 
+    public HealthBar HealthBar1;
+    public HealthBar HealthBar2;
+    public HealthBar HealthBar3;
+    public HealthBar HealthBar4;
+    public HealthBar HealthBar5;
+    public HealthBar HealthBar6;
+    public HealthBar HealthBar7;
+    public HealthBar HealthBar8;
+    public HealthBar HealthBar9;
+    public HealthBar HealthBar10;
+
     public Sprite Feminist;
     public Sprite siyasalislamci;
     public Sprite Dogaci;
@@ -29,6 +40,7 @@ public class ListingCharacterSceneManager : MonoBehaviour
 
     public List<GameObject> judgeList;
     public List<Sprite> judgeSpriteList;
+    public List<HealthBar> HealthBarList;
 
     private void Start()
     {
@@ -56,20 +68,35 @@ public class ListingCharacterSceneManager : MonoBehaviour
         judgeSpriteList.Add(DunyaBarisi);
         judgeSpriteList.Add(Satanist);
 
+        HealthBarList = new List<HealthBar>();
+        HealthBarList.Add(HealthBar1);
+        HealthBarList.Add(HealthBar2);
+        HealthBarList.Add(HealthBar3);
+        HealthBarList.Add(HealthBar4);
+        HealthBarList.Add(HealthBar5);
+        HealthBarList.Add(HealthBar6);
+        HealthBarList.Add(HealthBar7);
+        HealthBarList.Add(HealthBar8);
+        HealthBarList.Add(HealthBar9);
+        HealthBarList.Add(HealthBar10);
+
         for (int i = 0; i < 10; i++)
         {
             if (Characters.characters[i].isStatChanged == true) 
             {
                 judgeList[i].GetComponent<SpriteRenderer>().sprite = judgeSpriteList[i];
-                judgeList[i].GetComponentInChildren<TextMeshPro>().text = Characters.characters[i].GetHappiness() + " " + Characters.characters[i].name + " the stat was changed";
             }
 
             else
             {
                 judgeList[i].GetComponent<SpriteRenderer>().sprite = judgeSpriteList[i];
-                judgeList[i].GetComponentInChildren<TextMeshPro>().text = Characters.characters[i].GetHappiness().ToString();
 
             }
+        }
+
+        for (int i = 0; i < HealthBarList.Count; i++)
+        {
+            HealthBarList[i].SetSlider(PlayerPrefs.GetInt("Happiness_" + i));
         }
         
     }

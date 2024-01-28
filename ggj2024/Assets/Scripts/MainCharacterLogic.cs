@@ -218,6 +218,17 @@ public class MainCharacterLogic : MonoBehaviour
                 // E�er �arpan nesnenin bir etiketi varsa (ba�ka kriterleri de kullanabilirsiniz)
                 if (hit.collider.CompareTag("Card1"))
                 {
+                    card1.GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    card2.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card3.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card4.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card5.GetComponent<Transform>().localScale = new Vector2(1, 1);
+
+                    GameObject.FindGameObjectWithTag("image1").GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    GameObject.FindGameObjectWithTag("image2").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image3").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image4").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image5").GetComponent<Transform>().localScale = new Vector2(1, 1);
                     isCardSelected = true;
                     selectedFiveCards[0].isOnclick = true;
                     selectedFiveCards[1].isOnclick = false;
@@ -236,6 +247,18 @@ public class MainCharacterLogic : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Card2"))
                 {
+                    card1.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card2.GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    card3.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card4.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card5.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    
+                    GameObject.FindGameObjectWithTag("image1").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image2").GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    GameObject.FindGameObjectWithTag("image3").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image4").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image5").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    
                     isCardSelected = true;
                     selectedFiveCards[0].isOnclick = false;
                     selectedFiveCards[1].isOnclick = true;
@@ -253,6 +276,18 @@ public class MainCharacterLogic : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Card3"))
                 {
+                    card1.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card2.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card3.GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    card4.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card5.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    
+                    GameObject.FindGameObjectWithTag("image1").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image2").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image3").GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    GameObject.FindGameObjectWithTag("image4").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image5").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    
                     isCardSelected = true;
                     selectedFiveCards[0].isOnclick = false;
                     selectedFiveCards[1].isOnclick = false;
@@ -270,6 +305,18 @@ public class MainCharacterLogic : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Card4"))
                 {
+                    card1.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card2.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card3.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card4.GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    card5.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    
+                    GameObject.FindGameObjectWithTag("image1").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image2").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image3").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image4").GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    GameObject.FindGameObjectWithTag("image5").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    
                     isCardSelected = true;
                     selectedFiveCards[0].isOnclick = false;
                     selectedFiveCards[1].isOnclick = false;
@@ -287,6 +334,18 @@ public class MainCharacterLogic : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("Card5"))
                 {
+                    card1.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card2.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card3.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card4.GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    card5.GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    
+                    GameObject.FindGameObjectWithTag("image1").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image2").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image3").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image4").GetComponent<Transform>().localScale = new Vector2(1, 1);
+                    GameObject.FindGameObjectWithTag("image5").GetComponent<Transform>().localScale = new Vector2(2, 2);
+                    
                     isCardSelected = true;
                     selectedFiveCards[0].isOnclick = false;
                     selectedFiveCards[1].isOnclick = false;
@@ -376,17 +435,9 @@ public class MainCharacterLogic : MonoBehaviour
             HealthBar3.SetSlider(PlayerPrefs.GetInt("Happiness_" + ThreeRaandomJudges[2].Id));
             
             
-
-            //SelectThreeRandomJudges();
-
-            //judge1.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[0].happiness.ToString() + ThreeRaandomJudges[0].name;
-            //judge2.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[1].happiness.ToString() + ThreeRaandomJudges[1].name;
-            //judge3.GetComponentInChildren<TextMeshPro>().text = ThreeRaandomJudges[2].happiness.ToString() + ThreeRaandomJudges[2].name;
-            
             triggerAnimationsBoom();
             hideBorders();
             HideImages();
-            Invoke("updateCardText",1f);
             Invoke("hideSelectedCard",1f);
             Invoke("changeScene",2f);
         }
@@ -591,37 +642,25 @@ public class MainCharacterLogic : MonoBehaviour
         {
             
             GameObject.FindGameObjectWithTag("Border1").GetComponent<SpriteRenderer>().enabled = false;
-            card1.GetComponentInChildren<TextMeshPro>().enabled = false;
         }
         if (selectedCardIndex == 1)
         {
             GameObject.FindGameObjectWithTag("Border2").GetComponent<SpriteRenderer>().enabled = false;
-            card2.GetComponentInChildren<TextMeshPro>().enabled = false;
         }
         if (selectedCardIndex == 2)
         {
             GameObject.FindGameObjectWithTag("Border3").GetComponent<SpriteRenderer>().enabled = false;
-            card3.GetComponentInChildren<TextMeshPro>().enabled = false;
         }
         if (selectedCardIndex == 3)
         {
             GameObject.FindGameObjectWithTag("Border4").GetComponent<SpriteRenderer>().enabled = false;
-            card4.GetComponentInChildren<TextMeshPro>().enabled = false;
         }
         if (selectedCardIndex == 4)
         {
             GameObject.FindGameObjectWithTag("Border5").GetComponent<SpriteRenderer>().enabled = false;
-            card5.GetComponentInChildren<TextMeshPro>().enabled = false;
         }
     }
-    void updateCardText()
-    {
-        card1.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[0].name;
-        card2.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[1].name;
-        card3.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[2].name;
-        card4.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[3].name;
-        card5.GetComponentInChildren<TextMeshPro>().text = selectedFiveCards[4].name;
-    }
+    
     void hideSelectedCard()
     {
         Instantiate(prefabNewCard, bunch.transform.position, Quaternion.identity);
@@ -671,36 +710,36 @@ public class MainCharacterLogic : MonoBehaviour
         List<int> SekulerDislikes = new List<int>(); SekulerDislikes.Add(5); SekulerDislikes.Add(3); SekulerDislikes.Add(9);
         List<int> DunyaBariscisiDislikes = new List<int>(); DunyaBariscisiDislikes.Add(5); DunyaBariscisiDislikes.Add(3); DunyaBariscisiDislikes.Add(9);
         List<int> SatanistDislikes = new List<int>(); SatanistDislikes.Add(0); SatanistDislikes.Add(1); SatanistDislikes.Add(2); SatanistDislikes.Add(3); SatanistDislikes.Add(5); SatanistDislikes.Add(6); SatanistDislikes.Add(7); SatanistDislikes.Add(8);
-        cards.Add(new Card(0, "Feminist 0",0, FeministDislikes, "Images/feminist"));
-        cards.Add(new Card(1, "Feminist 1", 0, FeministDislikes, "Images/feminist"));
-        cards.Add(new Card(2, "Feminist 2", 0, FeministDislikes, "Images/feminist"));
-        cards.Add(new Card(3, "Siyasal Islamci 3",1, SiyasalIslamciDislikes, "Images/siyasal_islam"));
-        cards.Add(new Card(4, "Siyasal Islamci 4", 1, SiyasalIslamciDislikes, "Images/siyasal_islam"));
-        cards.Add(new Card(5, "Siyasal Islamci 5", 1, SiyasalIslamciDislikes, "Images/siyasal_islam"));
-        cards.Add(new Card(6, "Doga Sever 6",2, DogaSeverDislikes, "Images/doga_sever"));
-        cards.Add(new Card(7, "Doga Sever 7", 2, DogaSeverDislikes, "Images/doga_sever"));
-        cards.Add(new Card(8, "Doga Sever 8", 2, DogaSeverDislikes, "Images/doga_sever"));
-        cards.Add(new Card(9, "Milliyetci 9",3, MilliyetciDislikes, "Images/milliyetci"));
-        cards.Add(new Card(10, "Milliyetci 10", 3, MilliyetciDislikes, "Images/milliyetci"));
-        cards.Add(new Card(11, "Milliyetci 11", 3, MilliyetciDislikes, "Images/milliyetci"));
-        cards.Add(new Card(12, "Geek 12",4, GeekDislikes, "Images/feminist"));
-        cards.Add(new Card(13, "Geek 13", 4, GeekDislikes, "Images/feminist"));
-        cards.Add(new Card(14, "Geek 14", 4, GeekDislikes, "Images/feminist"));
-        cards.Add(new Card(15, "Asiri Sanatci 15",5, AsiriSanatciDislikes, "Images/feminist"));
-        cards.Add(new Card(16, "Asiri Sanatci 16", 5, AsiriSanatciDislikes, "Images/feminist"));
-        cards.Add(new Card(17, "Asiri Sanatci 17", 5, AsiriSanatciDislikes, "Images/feminist"));
-        cards.Add(new Card(18, "Insel 18",6, InselDislikes, "Images/feminist"));
-        cards.Add(new Card(19, "Insel 19", 6, InselDislikes, "Images/feminist"));
-        cards.Add(new Card(20, "Insel 20", 6, InselDislikes, "Images/feminist"));
-        cards.Add(new Card(21, "Sekuler 21",7, SekulerDislikes, "Images/feminist"));
-        cards.Add(new Card(22, "Sekuler 22", 7, SekulerDislikes, "Images/feminist"));
-        cards.Add(new Card(23, "Sekuler 23", 7, SekulerDislikes, "Images/feminist"));
-        cards.Add(new Card(24, "Dunya Bariscilari 24",8, DunyaBariscisiDislikes, "Images/feminist"));
-        cards.Add(new Card(25, "Dunya Bariscilari 25", 8, DunyaBariscisiDislikes, "Images/feminist"));
-        cards.Add(new Card(26, "Dunya Bariscilari 26", 8, DunyaBariscisiDislikes, "Images/feminist"));
-        cards.Add(new Card(27, "Satanist 27",9, SatanistDislikes, "Images/feminist"));
-        cards.Add(new Card(28, "Satanist 28", 9, SatanistDislikes, "Images/feminist"));
-        cards.Add(new Card(29, "Satanist 29", 9, SatanistDislikes, "Images/feminist"));
+        cards.Add(new Card(0, "Feminist 0",0, FeministDislikes, "Images/feminist1"));
+        cards.Add(new Card(1, "Feminist 1", 0, FeministDislikes, "Images/feminist2"));
+        cards.Add(new Card(2, "Feminist 2", 0, FeministDislikes, "Images/feminist3"));
+        cards.Add(new Card(3, "Siyasal Islamci 3",1, SiyasalIslamciDislikes, "Images/islamcı1"));
+        cards.Add(new Card(4, "Siyasal Islamci 4", 1, SiyasalIslamciDislikes, "Images/islamcı2"));
+        cards.Add(new Card(5, "Siyasal Islamci 5", 1, SiyasalIslamciDislikes, "Images/islamcı3"));
+        cards.Add(new Card(6, "Doga Sever 6",2, DogaSeverDislikes, "Images/doğa1"));
+        cards.Add(new Card(7, "Doga Sever 7", 2, DogaSeverDislikes, "Images/doğa2"));
+        cards.Add(new Card(8, "Doga Sever 8", 2, DogaSeverDislikes, "Images/doğa3"));
+        cards.Add(new Card(9, "Milliyetci 9",3, MilliyetciDislikes, "Images/milliyetçi1"));
+        cards.Add(new Card(10, "Milliyetci 10", 3, MilliyetciDislikes, "Images/milliyetçi2"));
+        cards.Add(new Card(11, "Milliyetci 11", 3, MilliyetciDislikes, "Images/milliyetçi3"));
+        cards.Add(new Card(12, "Geek 12",4, GeekDislikes, "Images/geek1"));
+        cards.Add(new Card(13, "Geek 13", 4, GeekDislikes, "Images/geek2"));
+        cards.Add(new Card(14, "Geek 14", 4, GeekDislikes, "Images/geek3"));
+        cards.Add(new Card(15, "Asiri Sanatci 15",5, AsiriSanatciDislikes, "Images/sanat1"));
+        cards.Add(new Card(16, "Asiri Sanatci 16", 5, AsiriSanatciDislikes, "Images/sanat2"));
+        cards.Add(new Card(17, "Asiri Sanatci 17", 5, AsiriSanatciDislikes, "Images/sanat3"));
+        cards.Add(new Card(18, "Insel 18",6, InselDislikes, "Images/insel1"));
+        cards.Add(new Card(19, "Insel 19", 6, InselDislikes, "Images/insel2"));
+        cards.Add(new Card(20, "Insel 20", 6, InselDislikes, "Images/insel3"));
+        cards.Add(new Card(21, "Sekuler 21",7, SekulerDislikes, "Images/seküler1"));
+        cards.Add(new Card(22, "Sekuler 22", 7, SekulerDislikes, "Images/seküler2"));
+        cards.Add(new Card(23, "Sekuler 23", 7, SekulerDislikes, "Images/seküler3"));
+        cards.Add(new Card(24, "Dunya Bariscilari 24",8, DunyaBariscisiDislikes, "Images/barışçı1"));
+        cards.Add(new Card(25, "Dunya Bariscilari 25", 8, DunyaBariscisiDislikes, "Images/barışçı2"));
+        cards.Add(new Card(26, "Dunya Bariscilari 26", 8, DunyaBariscisiDislikes, "Images/barışçı3"));
+        cards.Add(new Card(27, "Satanist 27",9, SatanistDislikes, "Images/satanist1"));
+        cards.Add(new Card(28, "Satanist 28", 9, SatanistDislikes, "Images/satanist2"));
+        cards.Add(new Card(29, "Satanist 29", 9, SatanistDislikes, "Images/satanist3"));
          
     }
     
