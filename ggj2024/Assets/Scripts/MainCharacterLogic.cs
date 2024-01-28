@@ -70,7 +70,14 @@ public class MainCharacterLogic : MonoBehaviour
 
     public Animator myAnimator;
     
+    // Health bars
+
+    public HealthBar HealthBar1;
+    public HealthBar HealthBar2;
+    public HealthBar HealthBar3;
     
+    
+    // Health bars
     
     
     
@@ -82,7 +89,12 @@ public class MainCharacterLogic : MonoBehaviour
         selectedFiveCards = new List<Card>();
         cards = new List<Card>();
         ThreeRaandomJudges = new List<Character>();
-        Characters.createCharacters();
+        
+
+        if (!PlayerPrefs.HasKey("isCreated"))
+        {
+            Characters.createCharacters();
+        }
         // gameLogic = GameObject.FindGameObjectWithTag("Game Logic").GetComponent<GameLogic>();
         //characterLogic = GameObject.FindGameObjectWithTag("Character").GetComponent<Characters>();
         //characterLogic = new Characters();
@@ -108,54 +120,64 @@ public class MainCharacterLogic : MonoBehaviour
 
         SelectThreeRandomJudges();
         
-        updateJudgeSprites(ThreeRaandomJudges[0].Id,judge1);
-        updateJudgeSprites(ThreeRaandomJudges[1].Id,judge2);
-        updateJudgeSprites(ThreeRaandomJudges[2].Id,judge3);
+        updateJudgeSprites(ThreeRaandomJudges[0].Id,judge1,HealthBar1);
+        updateJudgeSprites(ThreeRaandomJudges[1].Id,judge2,HealthBar2);
+        updateJudgeSprites(ThreeRaandomJudges[2].Id,judge3,HealthBar3);
     }
 
-    void updateJudgeSprites(int id, GameObject judge)
+    void updateJudgeSprites(int Id, GameObject judge, HealthBar healthBar)
     {
         judge.GetComponent<Animator>().enabled = false;
 
-        if (id == 0)
+        if (Id == 0)
         {
             judge.GetComponent<SpriteRenderer>().sprite = Feminist;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
-        if (id == 1)
+        if (Id == 1)
         {
             judge.GetComponent<SpriteRenderer>().sprite = siyasalislamci;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
-        if (id == 2)
+        if (Id == 2)
         {
             judge.GetComponent<SpriteRenderer>().sprite = Dogaci;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
-        if (id == 3)
+        if (Id == 3)
         {
             judge.GetComponent<SpriteRenderer>().sprite = Millitetci;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
-        if (id == 4)
+        if (Id == 4)
         {
             judge.GetComponent<SpriteRenderer>().sprite = Geek;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
-        if (id == 5)
+        if (Id == 5)
         {
             judge.GetComponent<SpriteRenderer>().sprite = sanatci;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
-        if (id == 6)
+        if (Id == 6)
         {
             judge.GetComponent<SpriteRenderer>().sprite = Insel;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
-        if (id == 7)
+        if (Id == 7)
         {
             judge.GetComponent<SpriteRenderer>().sprite = sekuler;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
-        if (id == 8)
+        if (Id == 8)
         {
             judge.GetComponent<SpriteRenderer>().sprite = DunyaBarisi;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
-        if (id == 9)
+        if (Id == 9)
         {
             judge.GetComponent<SpriteRenderer>().sprite = Satanist;
+            healthBar.SetSlider(PlayerPrefs.GetInt("Happiness_" + Id));
         }
     }
 
@@ -312,11 +334,17 @@ public class MainCharacterLogic : MonoBehaviour
                     for(int j = 0; j < 3; j++)
                     {
                         if (selectedFiveCards[i].CharacterId == ThreeRaandomJudges[j].Id)
+                        {
                             Characters.IncreaseJudgeHappiness(ThreeRaandomJudges[j]);
+                            ThreeRaandomJudges[j].happinessValue = 0;
+                        }
                         for(int k = 0; k < selectedFiveCards[i].Dislikes.Count; k++)
                         {
                             if (selectedFiveCards[i].Dislikes[k] == ThreeRaandomJudges[j].Id)
+                            {
                                 Characters.DecreaseJudgeHappiness(ThreeRaandomJudges[j]);
+                                ThreeRaandomJudges[j].happinessValue = 1;
+                            }
                         }
                     } 
                     selectedFiveCards.RemoveAt(i);
@@ -328,6 +356,10 @@ public class MainCharacterLogic : MonoBehaviour
             startAnimation(ThreeRaandomJudges[0].Id,ThreeRaandomJudges[0].happinessValue,judge1);
             startAnimation(ThreeRaandomJudges[1].Id,ThreeRaandomJudges[1].happinessValue,judge2);
             startAnimation(ThreeRaandomJudges[2].Id,ThreeRaandomJudges[2].happinessValue,judge3);
+            
+            HealthBar1.SetSlider(PlayerPrefs.GetInt("Happiness_" + ThreeRaandomJudges[0].Id));
+            HealthBar2.SetSlider(PlayerPrefs.GetInt("Happiness_" + ThreeRaandomJudges[1].Id));
+            HealthBar3.SetSlider(PlayerPrefs.GetInt("Happiness_" + ThreeRaandomJudges[2].Id));
             
             
 
